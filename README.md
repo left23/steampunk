@@ -1,4 +1,7 @@
-# 000_plate
-000_plate
+# steampunk
 
-State-based template for eclecticmeme plates - phaser game setup, libraries, js files, and index html/php
+Steampunk-themed setting for PhaserJs interaction, based on 000_plate
+
+![Screenshot of game interaction](assets/steampunk.png)
+
+
