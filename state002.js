@@ -27,6 +27,14 @@ myPlate.State002.prototype = {
     //  This is just a visual debug grid, it's not needed for the actual Group.align to work
     game.add.sprite(0, 0, game.create.grid('grid', 160 * 5, 160 * 3, 160, 160, 'rgba(0, 250, 0, 1)'));
 
+    lilrobot = game.add.sprite(750, 450, 'sprites');
+    lilrobot.frameName = 'lil-robot.png';
+    lilrobot.anchor.setTo(0.5, 0.5);
+    lilrobot.scale.setTo(0.4, 0.4);
+    lilrobot.inputEnabled = true;
+    lilrobot.events.onInputDown.add(lilrobotListener, this);
+    lilrobot.alpha = 1;
+
     // make the robot group
     robot = game.add.group();
     //robot.scale.set(0.5, 0.5);
@@ -56,12 +64,39 @@ myPlate.State002.prototype = {
 
   update: function() {
 
-    //robot.rotation += 0.02;
-
     robot.forEach(function(item) {
         //item.rotation += 0.02;
     })
 
+
+    var robotTint = Math.random() * 0xffffff;
+
+    //console.log('Updates: ' + robotTint);
+    //lilrobot.tint = robotTint;
+
   }
 
+}
+
+
+function lilrobotListener (robotTint) {
+  game.add.tween(lilrobot).to({ x: -lilrobot.width }, 2400, Phaser.Easing.Back.In, true, 0, false);
+  game.add.tween(lilrobot).to( { angle: -360 }, 1000, Phaser.Easing.Back.In, true, 0, true);
+
+  lilrobot.events.onInputDown.add(lilrollinrobotListener, this);
+
+
+  console.log('Listener: ' + robotTint);
+  console.log(robotTint.toString());
+  // why is this an object!?!@?!?!
+  console.dir(robotTint);
+  console.dir(robotTint.tint);
+
+  lilrobot.tint = robotTint.tint;
+
+}
+
+
+function lilrollinrobotListener () {
+  this.game.state.start('State003');
 }

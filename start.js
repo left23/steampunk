@@ -9,7 +9,8 @@ var game = new Phaser.Game(800, 500, Phaser.AUTO, 'world');
 
 var states = {
   'State001' : myPlate.State001,
-  'State002' : myPlate.State002
+  'State002' : myPlate.State002,
+  'State003' : myPlate.State003
 };
 
 for(var state in states)

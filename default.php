@@ -12,6 +12,7 @@
     <div id="world"></div>
     <script src='state001.js'></script>
     <script src='state002.js'></script>
+    <script src='state003.js'></script>
     <script src='start.js'></script>
   </body>
 </html>
